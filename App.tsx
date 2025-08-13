@@ -24,6 +24,12 @@ function App() {
         <Text>Child One</Text>
         <Text>Child Two</Text>
       </Text>
+
+      <Text style={styles.header}>Text with child link text</Text>
+      <Text style={styles.text}>
+        Regular Text
+        <Text role="link" onPress={handlePress}>Link Text</Text>
+      </Text>
     </View>
   );
 }
