@@ -30,6 +30,8 @@ function App() {
         Regular Text
         <Text role="link" onPress={handlePress}>Link Text</Text>
       </Text>
+
+      <Text style={styles.header}>Next focus</Text>
     </View>
   );
 }
