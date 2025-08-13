@@ -1,44 +1,47 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- */
-
-import { NewAppScreen } from '@react-native/new-app-screen';
-import { StatusBar, StyleSheet, useColorScheme, View } from 'react-native';
-import {
-  SafeAreaProvider,
-  useSafeAreaInsets,
-} from 'react-native-safe-area-context';
+import { StyleSheet, Text, View } from 'react-native';
 
 function App() {
-  const isDarkMode = useColorScheme() === 'dark';
-
-  return (
-    <SafeAreaProvider>
-      <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
-      <AppContent />
-    </SafeAreaProvider>
-  );
-}
-
-function AppContent() {
-  const safeAreaInsets = useSafeAreaInsets();
+  const handlePress = () => {
+    console.log('Pressed');
+  };
 
   return (
     <View style={styles.container}>
-      <NewAppScreen
-        templateFileName="App.tsx"
-        safeAreaInsets={safeAreaInsets}
-      />
+      <Text style={styles.header}>Initial Focus</Text>
+
+      <Text style={styles.text}>Basic Text</Text>
+      
+      <Text role="link" style={styles.text} onPress={handlePress}>Basic Link Text</Text>
+
+      <Text style={styles.header}>Text with child texts</Text>
+      <Text style={styles.text}>
+        <Text>Child One</Text>
+        <Text>Child Two</Text>
+      </Text>
+
+      <Text style={styles.header}>Text Link with child texts</Text>
+      <Text role="link" style={styles.text} onPress={handlePress}>
+        <Text>Child One</Text>
+        <Text>Child Two</Text>
+      </Text>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
+    paddingTop: 80,
+    padding: 20,
     flex: 1,
+  },
+  header: {
+    fontSize: 16,
+    color: 'darkgray',
+    marginTop: 20,
+    marginBottom: 10,
+  },
+  text: {
+    fontSize: 20,
   },
 });
 
